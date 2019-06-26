@@ -15,7 +15,7 @@ router.route('/').get((req, res) => {
 // Get request per ID params
 router.route('/:id').get((req, res) => {
   User.findById(req.params.id)
-  .then(user => res.json(user))
+  .then(users => res.json(users))
   .catch(err => res.status(400).json('Error: ' + err))
 })
 

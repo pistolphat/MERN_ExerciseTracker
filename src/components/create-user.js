@@ -31,7 +31,8 @@ class CreateUser extends Component {
 
     // Axios post method to endpoint. 2nd Argument as Object.
   
-    axios.post('http://localhost:3001/users/add', user)
+    // axios.post('http://localhost:3001/users/add', user)
+    axios.post('https://exercise-track.herokuapp.com/users/add', user)
     .then (res => console.log(res.data))
 
     //After User submit, reset and stay on page.

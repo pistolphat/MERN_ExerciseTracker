@@ -29,7 +29,8 @@ class EditExercise extends Component {
   // Two Axios requests
   // Lifecyle to retrieve item to be Edit, ID from URL, convert correct date
   componentDidMount() {
-    axios.get('http://localhost:3001/exercises/'+this.props.match.params.id)
+    // axios.get('http://localhost:3001/exercises/'+this.props.match.params.id)
+    axios.get('https://exercise-track.herokuapp.com/exercises/'+this.props.match.params.id)
     .then(res => {
       this.setState({
         username: res.data.username,
@@ -43,7 +44,8 @@ class EditExercise extends Component {
     })
 
     // Use Axios to get the data array, use Map array, first field
-    axios.get('http://localhost:3001/users/')
+    // axios.get('http://localhost:3001/users/')
+    axios.get('https://exercise-track.herokuapp.com/users/')
     .then(response => {
       if (response.data.length > 0 ) {
         this.setState ( {
@@ -82,7 +84,6 @@ class EditExercise extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    
     const exercise = {
       username: this.state.username,
       description: this.state.description,
@@ -94,7 +95,8 @@ class EditExercise extends Component {
     console.log(exercise);
 
     //Axios post/update method request, 2nd argument as Object
-    axios.post('http://localhost:3001/exercises/update/'+this.props.match.params.id, exercise)
+    // axios.post('http://localhost:3001/exercises/update/'+this.props.match.params.id, exercise)
+    axios.post('https://exercise-track.herokuapp.com/exercises/update/'+this.props.match.params.id, exercise)
     .then (res => console.log(res.data))
 
     //After User submit, return to List component
