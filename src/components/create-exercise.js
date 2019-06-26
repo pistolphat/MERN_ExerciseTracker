@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import DatePicker from 'react-datepicker';
+import axios from 'axios'
+import 'react-datepicker/dist/react-datepicker.css';
+
 
  // Date Picker react component, install and use. (react-datepicker)
  // Import DatePicker and styling
@@ -26,15 +28,21 @@ class CreateExercise extends Component {
   }
 
   // Initial User to start (hardcode until DB). Lifecycle to start before Loading.
+  // Use Axios to get the data array, use Map array, first field
   componentDidMount() {
-    this.setState({
-      users: ['test user'],
-      username: 'test user'
+    axios.get('http://localhost:3001/users/')
+    .then(response => {
+      if (response.data.length > 0 ) {
+        this.setState ( {
+          users: response.data.map(user => user.username),
+          username: response.data[0].username
+        })
+      }
+       
     })
   }
 
   // OnChange Methods per text fields
-
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
@@ -72,6 +80,10 @@ class CreateExercise extends Component {
     
     //CLG to see submission
     console.log(exercise);
+
+    //Axios post method request, 2nd argument as Object
+    axios.post('http://localhost:3001/exercises/add', exercise)
+    .then (res => console.log(res.data))
 
     //After User submit, return to List component
     window.location = '/';
