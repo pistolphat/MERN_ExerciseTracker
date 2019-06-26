@@ -31,7 +31,7 @@ router.route('/add').post((req, res) => {
 // Get request per ID params
 router.route('/:id').get((req, res) => {
   Exercise.findById(req.params.id)
-  .then(exercises => res.json(exercises))
+  .then(exercise => res.json(exercise))
   .catch(err => res.status(400).json('Error: ' + err))
 })
 

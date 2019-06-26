@@ -30,8 +30,8 @@ class CreateExercise extends Component {
   // Initial User to start (hardcode until DB). Lifecycle to start before Loading.
   // Use Axios to get the data array, use Map array, first field
   componentDidMount() {
-    // axios.get('http://localhost:3001/users/')
-    axios.get('https://exercise-track.herokuapp.com/users/')
+    axios.get('http://localhost:3001/users/')
+    // axios.get('https://exercise-track.herokuapp.com/users/')
     .then(response => {
       if (response.data.length > 0 ) {
         this.setState ( {
@@ -82,8 +82,8 @@ class CreateExercise extends Component {
     console.log(exercise);
 
     //Axios post method request, 2nd argument as Object
-    // axios.post('http://localhost:3001/exercises/add', exercise)
-    axios.post('https://exercise-track.herokuapp.com/exercises/add', exercise)
+    axios.post('http://localhost:3001/exercises/add', exercise)
+    // axios.post('https://exercise-track.herokuapp.com/exercises/add', exercise)
     .then (res => console.log(res.data))
 
     //After User submit, return to List component
