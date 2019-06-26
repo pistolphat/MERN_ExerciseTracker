@@ -43,7 +43,6 @@ router.route('/:id').delete((req, res) => {
 })
 
 // Update and save requests
-
 router.route('/update/:id').post((req, res) => {
   Exercise.findById(req.params.id)
     .then(exercise => {

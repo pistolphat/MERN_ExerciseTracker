@@ -4,7 +4,7 @@ let User = require('../models/user')
 // const express = require('express')
 // const router = express.Router()
 
-// Get requests from root + /
+// Get requests from Homepage
 // Find() method with Promises
 router.route('/').get((req, res) => {
   User.find()
@@ -12,7 +12,14 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err))
 });
 
-// Post requests  with /add
+// Get request per ID params
+router.route('/:id').get((req, res) => {
+  User.findById(req.params.id)
+  .then(user => res.json(user))
+  .catch(err => res.status(400).json('Error: ' + err))
+})
+
+// Post requests with /add
 // Create new instance of a new User
 router.route('/add').post((req, res) => {
   const username = req.body.username;
@@ -26,5 +33,11 @@ router.route('/add').post((req, res) => {
     .catch (err => res.status(400).json('Error: ' + err))
 });
 
+// Delete User per ID params
+router.route('/:id').delete((req, res) => {
+  User.findByIdAndDelete(req.params.id)
+  .then(() => res.json('User Deleted.'))
+  .catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router
