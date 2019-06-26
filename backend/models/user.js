@@ -1,6 +1,5 @@
 //require mongoose
-const mongoose = require('mongoose');
-
+const mongoose = require('../db/connection');
 const Schema = mongoose.Schema;
 
 //Only one field with validations
@@ -15,7 +14,6 @@ const userSchema = new Schema ({
 }, {
   timestamps: true,
 });
-
 
 const User = mongoose.model('User', userSchema);
 

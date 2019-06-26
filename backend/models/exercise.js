@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+const mongoose = require('../db/connection');
 const Schema = mongoose.Schema;
 
 //more fields with different data types
