@@ -13,7 +13,7 @@ const Exercise = props => (
     <td>{props.exercise.duration}</td>
     <td>{props.exercise.date.substring(0,10)}</td> 
     <td>
-      <Link to={'/edit/'+props.exercise._id}>Edit</Link> | <a href='#' onClick={ () => { props.deleteExercise(props.exercise._id) }}>delete</a>
+      <Link to={'/edit/'+props.exercise._id}>Edit</Link> | <a href='#' onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
     </td>
   </tr>
 )
@@ -42,11 +42,11 @@ class ExerciseList extends Component {
   //Delete method via Object ID request from DB. Also delete _id element from UI via filter method. 
   deleteExercise(id) {
     axios.delete('http://localhost:3001/exercises/'+id)
-    .then(res => console.log(res.data));
+    .then(res => { console.log(res.data)});
     
     // Filter Exercises array, return ONLY elements if element._id is not equal ID that is deleting
     this.setState({
-      excercises: this.state.excercises.filter(el => el._id !== id)
+      exercises: this.state.exercises.filter(el => el._id !== id)
     })
   }
   
