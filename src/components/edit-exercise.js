@@ -4,7 +4,7 @@ class EditExercises extends Component {
   render() {
     return (
       <div>
-        <p>Hello from EditExercise</p>
+        <p>Hello from Edit Exercise</p>
       </div>
     );
   }
