@@ -1,8 +1,8 @@
-// const router = require('express').Router();
-// let User = require('../models/User')
+const router = require('express').Router();
+let User = require('../models/User')
 
-const express = require('express')
-const router = express.Router()
+// const express = require('express')
+// const router = express.Router()
 
 // Get requests from root + /
 // Find() method with Promises
