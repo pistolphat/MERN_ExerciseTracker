@@ -22,7 +22,6 @@ class ExerciseList extends Component {
   constructor(props) {
     super(props);
 
-
     //Delete method via button
     this.deleteExercise = this.deleteExercise.bind(this);
 
@@ -60,10 +59,10 @@ class ExerciseList extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='container'>
         <h3>Current Exercise List</h3>
         <br />
-        <table className='table'>
+        <table className='table' >
           <thead className='thead-light'>
             <tr>
               <th>Name</th>
