@@ -44,7 +44,7 @@ class CreateUser extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h3>Add new User</h3>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>

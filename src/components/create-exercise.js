@@ -93,7 +93,7 @@ class CreateExercise extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h3>New exercise routine</h3>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>

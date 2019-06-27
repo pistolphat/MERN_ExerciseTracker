@@ -4,18 +4,16 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
         <Link to="/" className="navbar-brand">Just Exercise</Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse justify-content-end" id='navbarSupportedContent'>
           <ul className="navbar-nav">
             <li className="nav-item">
             <Link to="/create" className="nav-link text-primary">Add New Exercise</Link>
             </li>
-            
             <li className="nav-item">
             <Link to="/user" className="nav-link text-white">New User</Link>
             </li>
