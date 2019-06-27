@@ -29,10 +29,10 @@ class ExerciseList extends Component {
     this.state = {exercises: []}
   }
 
-  //Lifecyle before render method starts. Accept all fields from each object
+  //Lifecyle before render method. Accept all fields from each object
   componentDidMount() {
-    axios.get('http://localhost:3001/exercises/')
-    // axios.get('https://exercise-track.herokuapp.com/exercises/')
+    // axios.get('http://localhost:3001/exercises/')
+    axios.get('https://exercise-track.herokuapp.com/exercises/')
     .then(res => {
       this.setState({ exercises: res.data})
     })
@@ -42,8 +42,8 @@ class ExerciseList extends Component {
   
   //Delete method via Object ID request from DB. Also delete _id element from UI via filter method. 
   deleteExercise(id) {
-    axios.delete('http://localhost:3001/exercises/'+id)
-    // axios.delete('https://exercise-track.herokuapp.com/exercises/'+id)
+    // axios.delete('http://localhost:3001/exercises/'+id)
+    axios.delete('https://exercise-track.herokuapp.com/exercises/'+id)
     .then(res => { console.log(res.data)});
     
     // Filter Exercises array, return ONLY elements if element._id is not equal ID that is deleting

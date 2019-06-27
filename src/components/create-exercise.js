@@ -3,7 +3,6 @@ import DatePicker from 'react-datepicker';
 import axios from 'axios'
 import 'react-datepicker/dist/react-datepicker.css';
 
-
  // Date Picker react component, install and use. (react-datepicker)
  // Import DatePicker and styling
 
@@ -27,18 +26,21 @@ class CreateExercise extends Component {
     }
   }
 
-  // Initial User to start (hardcode until DB). Lifecycle to start before Loading.
+  // Lifecycle to start before Loading.
   // Use Axios to get the data array, use Map array, first field
   componentDidMount() {
-    axios.get('http://localhost:3001/users/')
-    // axios.get('https://exercise-track.herokuapp.com/users/')
+    // axios.get('http://localhost:3001/users/')
+    axios.get('https://exercise-track.herokuapp.com/users/')
     .then(response => {
       if (response.data.length > 0 ) {
-        this.setState ( {
+        this.setState({
           users: response.data.map(user => user.username),
           username: response.data[0].username
         })
       }
+    })
+    .catch((error) => {
+      console.log(error);
     })
   }
 
@@ -61,7 +63,6 @@ class CreateExercise extends Component {
     })
   }
 
-  // Calendar table to select
   onChangeDate(date) {
     this.setState({
       date: date
@@ -82,18 +83,18 @@ class CreateExercise extends Component {
     console.log(exercise);
 
     //Axios post method request, 2nd argument as Object
-    axios.post('http://localhost:3001/exercises/add', exercise)
-    // axios.post('https://exercise-track.herokuapp.com/exercises/add', exercise)
+    // axios.post('http://localhost:3001/exercises/add', exercise)
+    axios.post('https://exercise-track.herokuapp.com/exercises/add', exercise)
     .then (res => console.log(res.data))
 
     //After User submit, return to List component
-    window.location = '/';
+    // window.location = '/';
   }
 
   render() {
     return (
       <div>
-        <h3>Add new exercise routine</h3>
+        <h3>New exercise routine</h3>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>
             <label>Username: </label>
@@ -102,9 +103,8 @@ class CreateExercise extends Component {
               className='form-control'
               value={this.state.username}
               onChange={this.onChangeUsername}>
-
               { //Inside select box options, from User's array from MongoDB. Map thru array, return Option in Select Box.
-                this.state.users.map(function (user) {
+                this.state.users.map(function(user) {
                   return <option
                   key={user}
                   value={user}>{user}

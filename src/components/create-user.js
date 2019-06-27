@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+
 
 class CreateUser extends Component {
   constructor(props){
@@ -30,8 +32,8 @@ class CreateUser extends Component {
     console.log(user);
 
     // Axios post method to endpoint. 2nd Argument as Object.
-    axios.post('http://localhost:3001/users/add', user)
-    // axios.post('https://exercise-track.herokuapp.com/users/add', user)
+    // axios.post('http://localhost:3001/users/add', user)
+    axios.post('https://exercise-track.herokuapp.com/users/add', user)
     .then (res => console.log(res.data))
 
     //After User submit, reset and stay on page.
@@ -39,7 +41,7 @@ class CreateUser extends Component {
       username: ''
     })
 
-    window.location = '/';
+    // window.location = '/';
   }
 
   render() {
@@ -60,7 +62,6 @@ class CreateUser extends Component {
           <div className='form-group'>
             <input type='submit' value='Add New User' className='btn btn-primary' />
           </div>
-
         </form>
       </div>
     );
