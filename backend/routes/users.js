@@ -19,8 +19,8 @@ router.route('/:id').get((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err))
 })
 
-// Post requests with /add
-// Create new instance of a new User
+// New Post requests.
+// Create new instance of a new User, then Save.
 router.route('/add').post((req, res) => {
   const username = req.body.username;
 
@@ -38,6 +38,6 @@ router.route('/:id').delete((req, res) => {
   User.findByIdAndDelete(req.params.id)
   .then(() => res.json('User Deleted.'))
   .catch(err => res.status(400).json('Error: ' + err))
-})
+});
 
 module.exports = router

@@ -10,8 +10,8 @@ const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
 
 // When Users visit these roots URL, specific routes will be used
-app.use('/exercises', exercisesRouter)
-app.use('/users', usersRouter)
+app.use('https://exercise-track.herokuapp.com/exercises', exercisesRouter)
+app.use('https://exercise-track.herokuapp.com/users', usersRouter)
 
 app.set('port', process.env.PORT || 3001)
 

@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema ({
   username: {
     type: String,
+    capitalize: true,
     require: true,
     unique: true,
     trim: true, //trim whitespaces

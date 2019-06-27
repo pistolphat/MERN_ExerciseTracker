@@ -12,18 +12,13 @@ class Navbar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-
-          {/* <li className="nav-item active">
-          <Link to="/" className="nav-link">Exercises</Link>
-          </li> */}
-
-          <li className="nav-item">
-          <Link to="/create" className="nav-link">Create Exercise</Link>
-          </li>
-          
-          <li className="nav-item">
-          <Link to="/user" className="nav-link">Create User</Link>
-          </li>
+            <li className="nav-item">
+            <Link to="/create" className="nav-link text-primary">Add New Exercise</Link>
+            </li>
+            
+            <li className="nav-item">
+            <Link to="/user" className="nav-link text-white">New User</Link>
+            </li>
         </ul>
         </div>
       </nav>
