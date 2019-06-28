@@ -7,3 +7,12 @@ body {
   position: relative;
 }
 
+.logo {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 40px;
+}
+
+.newact {
+  font-family: 'Raleway', sans-serif;
+}
