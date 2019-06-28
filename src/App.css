@@ -1,8 +1,9 @@
 body {
   background-image: url('https://images.unsplash.com/photo-1538240175502-ec4eb4455f34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-  height: 600px;
+  height: auto;
+  max-width: 100%;
   background-position: center;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
   position: relative;
 }
